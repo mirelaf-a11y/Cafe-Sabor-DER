@@ -1,313 +1,198 @@
-# Cafe-Sabor-DER# Sistema Café Aroma e Sabor
+<div align="center">
 
-## Visão Geral
+# 💙💜 Café Aroma e Sabor
 
-O **Café Aroma e Sabor** é um sistema web desenvolvido com **Spring Boot**, voltado para o controle de estoque de produtos de uma cafeteria. O sistema permite o cadastro de produtos, o registro de movimentações de entrada e saída de estoque, autenticação de usuários e acompanhamento do histórico de movimentações.
+### Sistema de Controle de Estoque para Cafeteria
 
----
+<img src="https://img.shields.io/badge/Spring_Boot-Backend-6A5ACD?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Java-17-4169E1?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Spring_Security-Segurança-7B68EE?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Thymeleaf-Frontend-1E90FF?style=for-the-badge" />
 
-# Funcionalidades Implementadas
-
-## 1. Autenticação e Controle de Acesso
-
-### Login de usuários
-- Tela de login personalizada.
-- Autenticação via Spring Security.
-- Proteção de todas as rotas da aplicação.
-- Redirecionamento automático após autenticação.
-
-### Usuários padrão cadastrados
-
-| Usuário | Senha |
-|----------|---------|
-| admin | admin123 |
-| joao.silva | senha123 |
-
-### Recursos de segurança
-- Senhas criptografadas com BCrypt.
-- Logout seguro.
-- Controle de acesso baseado em autenticação.
+</div>
 
 ---
 
-## 2. Gestão de Produtos
+## 🔷 Visão Geral
 
-### Cadastro de produtos
+> Sistema desenvolvido para gerenciamento de estoque de cafeteria, permitindo controle de produtos, movimentações de estoque e autenticação de usuários.
 
-Permite registrar:
+### ✨ Principais Recursos
 
-- Nome
-- Descrição
-- Estoque mínimo
-- Lote
-- Data de validade
-- Quantidade atual
+🔹 Cadastro de Produtos
 
-### Listagem de produtos
+🔹 Controle de Entradas e Saídas
 
-Exibe todos os produtos cadastrados no sistema.
+🔹 Histórico de Movimentações
 
-### Alteração de produtos
+🔹 Dashboard Operacional
 
-Permite atualizar:
-
-- Nome
-- Descrição
-- Estoque mínimo
-- Lote
-- Validade
-- Quantidade disponível
-
-### Exclusão de produtos
-
-Permite remover produtos cadastrados.
+🔹 Autenticação Segura
 
 ---
 
-## 3. Controle de Estoque
+# 💜 Funcionalidades
 
-### Registro de Entrada
+## 🔐 Autenticação e Segurança
 
-Permite registrar entrada de mercadorias.
+<div style="border-left:4px solid #7B68EE;padding-left:10px;">
 
-Exemplos:
+✔ Login de usuários
 
-- Compra de novos produtos
+✔ Logout seguro
+
+✔ Proteção de rotas
+
+✔ Senhas criptografadas com BCrypt
+
+✔ Spring Security
+
+</div>
+
+---
+
+## 📦 Gestão de Produtos
+
+| 🔹 Recurso | 🔵 Descrição |
+|------------|-------------|
+| Cadastro | Inclusão de novos produtos |
+| Consulta | Listagem completa |
+| Alteração | Atualização de informações |
+| Exclusão | Remoção de registros |
+
+---
+
+## 📊 Controle de Estoque
+
+### 📈 Entradas
+
+- Compra de mercadorias
 - Reposição de estoque
 - Ajustes positivos
 
-### Registro de Saída
-
-Permite registrar:
+### 📉 Saídas
 
 - Vendas
 - Perdas
 - Descartes
 - Ajustes negativos
 
-### Validações
-
-O sistema valida:
-
-- Quantidade maior que zero
-- Existência do produto
-- Disponibilidade em estoque para saídas
-
 ---
 
-## 4. Histórico de Movimentações
-
-Cada movimentação registra:
-
-- Produto movimentado
-- Usuário responsável
-- Tipo da movimentação
-- Quantidade
-- Data e hora da operação
-
-### Tipos de movimentação
-
-- ENTRADA
-- SAIDA
-
-### Benefícios
-
-- Rastreabilidade completa
-- Auditoria das operações
-- Histórico permanente
-
----
-
-## 5. Dashboard de Estoque
-
-A tela principal de estoque apresenta:
-
-### Indicadores
-
-- Total de produtos cadastrados
-- Total de entradas
-- Total de saídas
-
-### Informações operacionais
-
-- Lista de produtos
-- Histórico de movimentações
-- Dados atualizados em tempo real
-
----
-
-## 6. Persistência de Dados
-
-### Entidades do Sistema
-
-#### Usuário
-
-Campos principais:
-
-- id
-- nome
-- login
-- senha
-
-#### Produto
-
-Campos principais:
-
-- id
-- nome
-- descrição
-- estoque mínimo
-- lote
-- data de validade
-- quantidade atual
-
-#### Movimentação de Estoque
-
-Campos principais:
-
-- id
-- tipo de movimentação
-- quantidade
-- data da movimentação
-- produto
-- usuário
-
----
-
-## 7. Relacionamentos
-
-### Produto → Movimentações
-
-Um produto pode possuir várias movimentações.
-
-Relacionamento:
+## 📝 Histórico de Movimentações
 
 ```text
-Produto 1 ------ N Movimentações
-```
-
-### Usuário → Movimentações
-
-Um usuário pode realizar várias movimentações.
-
-Relacionamento:
-
-```text
-Usuário 1 ------ N Movimentações
+┌─────────────────────────────┐
+│       MOVIMENTAÇÃO          │
+├─────────────────────────────┤
+│ Produto                     │
+│ Usuário                     │
+│ Tipo                        │
+│ Quantidade                  │
+│ Data/Hora                   │
+└─────────────────────────────┘
 ```
 
 ---
 
-## 8. Repositórios Disponíveis
+# 💙 Estrutura do Sistema
 
-### ProdutoRepository
-
-Funcionalidades:
-
-- Salvar produto
-- Buscar por ID
-- Listar todos
-- Excluir produto
-- Buscar por nome
-- Buscar produtos com estoque crítico
-
-### UsuarioRepository
-
-Funcionalidades:
-
-- Salvar usuário
-- Buscar por login
-- Buscar por ID
-- Listar usuários
-
-### MovimentacaoEstoqueRepository
-
-Funcionalidades:
-
-- Salvar movimentação
-- Buscar histórico
-- Buscar por produto
-- Buscar por usuário
-- Buscar por tipo
-
----
-
-## 9. Tecnologias Utilizadas
-
-### Backend
-
-- Java
-- Spring Boot
-- Spring MVC
-- Spring Data JPA
-- Spring Security
-
-### Banco de Dados
-
-- JPA/Hibernate
-
-### Frontend
-
-- Thymeleaf
-- HTML
-- CSS
-
----
-
-## Fluxo Principal do Sistema
+## 👤 Usuário
 
 ```text
-Login
-   ↓
-Tela Inicial
-   ↓
-Cadastro de Produtos
-   ↓
-Entrada/Saída de Estoque
-   ↓
-Histórico de Movimentações
-   ↓
-Relatórios Operacionais
+id
+nome
+login
+senha
+```
+
+## 📦 Produto
+
+```text
+id
+nome
+descricao
+estoqueMinimo
+lote
+dataValidade
+quantidadeAtual
+```
+
+## 🔄 Movimentação
+
+```text
+id
+tipoMovimentacao
+quantidade
+dataMovimentacao
+produto
+usuario
 ```
 
 ---
 
-## Casos de Uso
+# 💜 Fluxo do Sistema
 
-### Operador de Estoque
-
-- Fazer login
-- Cadastrar produto
-- Alterar produto
-- Registrar entrada
-- Registrar saída
-- Consultar histórico
-
-### Administrador
-
-- Todas as funcionalidades do operador
-- Gestão completa do estoque
+```text
+┌──────────────┐
+│ 🔐 Login     │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ 📊 Dashboard │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ 📦 Produtos  │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ 🔄 Estoque   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ 📝 Histórico │
+└──────────────┘
+```
 
 ---
 
-## Resumo Executivo
+# 🛠 Tecnologias
 
-O sistema implementa um fluxo completo de controle de estoque para uma cafeteria, incluindo:
+| Tecnologia | Finalidade |
+|------------|------------|
+| ☕ Java | Linguagem |
+| 🌱 Spring Boot | Backend |
+| 🔐 Spring Security | Segurança |
+| 🗃 JPA/Hibernate | Persistência |
+| 🎨 Thymeleaf | Frontend |
 
-✅ Autenticação de usuários
+---
 
-✅ Cadastro de produtos
+<div align="center">
 
-✅ Alteração e exclusão de produtos
+## 💙💜 Resumo
 
-✅ Controle de entrada e saída
+✅ Autenticação
 
-✅ Histórico de movimentações
+✅ Cadastro de Produtos
 
-✅ Persistência em banco de dados
+✅ Controle de Estoque
 
-✅ Relacionamentos entre entidades
+✅ Histórico de Movimentações
+
+✅ Dashboard Operacional
 
 ✅ Segurança com Spring Security
 
-✅ Dashboard operacional de estoque
+---
+
+### 🚀 Café Aroma e Sabor
+
+Sistema desenvolvido para garantir controle, organização e rastreabilidade do estoque.
+
+</div>
