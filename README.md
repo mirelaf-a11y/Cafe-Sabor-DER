@@ -191,8 +191,10 @@ usuario
 
 ---
 
-### 🚀 Café Aroma e Sabor
+### 🚀Autora
 
-Sistema desenvolvido para garantir controle, organização e rastreabilidade do estoque.
+Projeto desenvolvido para fins acadêmicos no curso de Desenvolvimento de Sistemas SENAI- Mirela Marques de Faria.
+
+### 🚀 Café Aroma e Sabor
 
 </div>
